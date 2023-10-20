@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     "use strict";
 
     let modalState = {};
-    let deadLine = '2023-07-01';
+    let deadLine = '2025-07-01';
 
     changeModalState(modalState);
     modals();

@@ -5,13 +5,13 @@ const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
 //const dist = "./dist/";
-  const dist = "D:/OpenServer/domains/test";
+  const dist = "C:/OpenServer/domains/Windows";
 
-gulp.task("copy-html", () => {
+/* gulp.task("copy-html", () => {
     return gulp.src("./src/index.html")
                 .pipe(gulp.dest(dist))
                 .pipe(browsersync.stream());
-});
+}); */
 
 gulp.task("build-js", () => {
     return gulp.src("./src/js/main.js")
@@ -53,17 +53,17 @@ gulp.task("copy-assets", () => {
 
 gulp.task("watch", () => {
     browsersync.init({
-		server: "./dist/",
+		server: ".",
 		port: 4000,
 		notify: true
     });
     
-    gulp.watch("./src/index.html", gulp.parallel("copy-html"));
+    //gulp.watch("./src/index.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
 });
 
-gulp.task("build", gulp.parallel("copy-html", "copy-assets", "build-js"));
+gulp.task("build", gulp.parallel(/* "copy-html", */ "copy-assets", "build-js"));
 
 gulp.task("build-prod-js", () => {
     return gulp.src("./src/js/main.js")
